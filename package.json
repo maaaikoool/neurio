@@ -1,0 +1,28 @@
+{
+  "name": "neurio",
+  "version": "0.1.0",
+  "description": "Neurio API client",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "keywords": [
+    "neurio",
+    "api",
+    "power",
+    "consumption",
+    "smart",
+    "home",
+    "automation"
+  ],
+  "author": "David Sanchez",
+  "license": "MIT",
+  "dependencies": {
+    "nock": "^1.5.0",
+    "request-promise": "^0.4.1"
+  },
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "mocha": "^2.2.4"
+  }
+}
