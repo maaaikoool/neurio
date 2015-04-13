@@ -16,12 +16,16 @@
     "automation"
   ],
   "author": "David Sanchez",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/maaaikoool/neurio.git"
+  },
   "license": "MIT",
   "dependencies": {
-    "nock": "^1.5.0",
     "request-promise": "^0.4.1"
   },
   "devDependencies": {
+    "nock": "^1.5.0",
     "chai": "^2.2.0",
     "mocha": "^2.2.4"
   }
