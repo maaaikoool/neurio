@@ -42,17 +42,17 @@ auth.simple(clientId, clientSecret).then(function (client) {
 
 ```js
 
-    var start = moment().subtract(1, 'days').format()
-    var end = moment().format()
-    var granularity = 'hours'
-    var frequency = 1
+var start = moment().subtract(1, 'days').format()
+var end = moment().format()
+var granularity = 'hours'
+var frequency = 1
 
-    client.stats(sensorId, start, end, granularity, frequency).then(function (stats) {
-      var max = maxConsumption(stats)
-      var average = averageConsumption(stats);
-      console.log('Last day max consumption was ' + max.consumptionEnergy + " watts at " + moment(max.start).format())
-      console.log('Average consumption was ' + average)
-    })
+client.stats(sensorId, start, end, granularity, frequency).then(function (stats) {
+  var max = maxConsumption(stats)
+  var average = averageConsumption(stats);
+  console.log('Last day max consumption was ' + max.consumptionEnergy + " watts at " + moment(max.start).format())
+  console.log('Average consumption was ' + average)
+})
 
 ```
 
