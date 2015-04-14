@@ -6,6 +6,7 @@ Unnoficial [Neurio](http://neur.io) node [API](https://api.neur.io/docs/) client
 
 ## Features
 
+- [OAuth](https://api.neur.io/docs/#oauth-2.0)
 - [User info](https://api.neur.io/docs/#users)
 - [Live samples](https://api.neur.io/docs/#samples)
 - [Appliances list](https://api.neur.io/docs/#appliances)
@@ -36,5 +37,24 @@ auth.simple(clientId, clientSecret).then(function (client) {
   })
 })
 ```
+
+### Last day stats
+
+```js
+
+    var start = moment().subtract(1, 'days').format()
+    var end = moment().format()
+    var granularity = 'hours'
+    var frequency = 1
+
+    client.stats(sensorId, start, end, granularity, frequency).then(function (stats) {
+      var max = maxConsumption(stats)
+      var average = averageConsumption(stats);
+      console.log('Last day max consumption was ' + max.consumptionEnergy + " watts at " + moment(max.start).format())
+      console.log('Average consumption was ' + average)
+    })
+
+```
+
 
 Checkout the rest of the [samples](/samples)
