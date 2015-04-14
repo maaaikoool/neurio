@@ -5,7 +5,7 @@ var clientSecret = 'YOUR_CLIENT_SECRET'
 
 auth.simple(clientId, clientSecret).then(function (client) {
   client.defaultSensorId().then(function (sensorId) {
-    client.liveSample(sensorId).then(function (samples) {
+    client.liveSamples(sensorId).then(function (samples) {
       console.log(samples)
     })
   })
