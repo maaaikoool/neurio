@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/maaaikoool/neurio.svg?branch=master)](https://travis-ci.org/maaaikoool/neurio)
 
-Unnoficial [Neurio](http://neur.io) node [API](https://api.neur.io/docs/) client
+Unofficial [Neurio](http://neur.io) node [API](https://api.neur.io/docs/) client
 
 ## Features
 
