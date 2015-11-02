@@ -25,7 +25,7 @@ describe('Appliances ', function () {
         "locationId": "0qX7nB-8Ry2bxIMTK0EmXw"
       }
     }
-    var applianceEventsRecent =
+    var applianceEvents =
       [
         {
           "id": "1cRsH7KQTeONMzjSuRJ2aw",
@@ -129,8 +129,10 @@ describe('Appliances ', function () {
       .reply(200, appliancesList)
       .get('/appliances/applianceId')
       .reply(200, singleAppliance)
-      .get('/appliances/events?locationId=locationId&since=since')
-      .reply(200, applianceEventsRecent)
+      .get('/appliances/events?locationId=locationId&start=start&end=end&minPower=minPower&perPage=perPage&page=page')
+      .reply(200, applianceEvents)
+      .get('/appliances/events?locationId=locationId&since=since&minPower=minPower&perPage=perPage&page=page')
+      .reply(200, applianceEvents)
       .get('/appliances/stats?applianceId=applianceId&start=start&end=end')
       .reply(200, applianceStats)
 
@@ -150,9 +152,9 @@ describe('Appliances ', function () {
       })
     })
 
-    it('should get a recent appliance events', function (done) {
+    it('should get appliance events from history', function (done) {
 
-      client.applianceEventsRecent('locationId','since').then(function (response) {
+        client.applianceEvents('locationId','start','end','minPower','perPage','page').then(function (response) {
         should.exist.response
         response.length.should.equal(1)
         response[0].appliance.name.should.equal("television")
@@ -160,7 +162,17 @@ describe('Appliances ', function () {
       })
     })
 
-    it('should get a specific appliance stats', function (done) {
+    it('should get recent appliance events', function (done) {
+
+      client.applianceEventsRecent('locationId','since','minPower','perPage','page').then(function (response) {
+        should.exist.response
+        response.length.should.equal(1)
+        response[0].appliance.name.should.equal("television")
+        done()
+      })
+    })
+
+    it('should get specific appliance stats', function (done) {
 
       client.applianceStats('applianceId', 'start', 'end').then(function (response) {
         should.exist.response
