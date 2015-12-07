@@ -43,7 +43,7 @@ describe('Samples ', function () {
     })
   })
 
-  it('should query energy stats', function (done) {
+  it('should query latest energy stats', function (done) {
 
     var sample = {
       "consumptionPower": 441,
@@ -56,6 +56,27 @@ describe('Samples ', function () {
     var client = new Client('token')
 
     client.stats('sensorId', 'start').then(function (response) {
+      should.exist.response
+      endpoint.done()
+      done()
+    })
+  })
+
+  it('should get samples history', function (done) {
+
+    var sample = {
+      "consumptionPower": 120,
+      "consumptionEnergy" : 17,
+      "generationPower" : 14,
+      "generationEnergy" : 2,
+    }
+    var endpoint = defaultNockEndpoint()
+      .get('/samples?sensorId=sensorId&start=start&end=end')
+      .reply(200, sample)
+
+    var client = new Client('token')
+
+    client.historySamples('sensorId', 'start', 'end').then(function (response) {
       should.exist.response
       endpoint.done()
       done()
