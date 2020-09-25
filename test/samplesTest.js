@@ -1,4 +1,4 @@
-require('chai').should()
+var expect = require('chai').expect
 var nock = require('nock'),
   config = require('../config'),
   Client = require('../lib/client')
@@ -18,7 +18,7 @@ describe('Samples ', function () {
     var client = new Client('token')
 
     client.liveSamples('sensorId').then(function (response) {
-      should.exist.response
+      expect(response).to.exist
       endpoint.done()
       done()
     })
@@ -37,7 +37,7 @@ describe('Samples ', function () {
     var client = new Client('token')
 
     client.lastSample('sensorId').then(function (response) {
-      should.exist.response
+      expect(response).to.exist
       endpoint.done()
       done()
     })
@@ -56,7 +56,7 @@ describe('Samples ', function () {
     var client = new Client('token')
 
     client.stats('sensorId', 'start').then(function (response) {
-      should.exist.response
+      expect(response).to.exist
       endpoint.done()
       done()
     })
@@ -77,7 +77,7 @@ describe('Samples ', function () {
     var client = new Client('token')
 
     client.historySamples('sensorId', 'start', 'end').then(function (response) {
-      should.exist.response
+      expect(response).to.exist
       endpoint.done()
       done()
     })

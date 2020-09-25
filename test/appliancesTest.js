@@ -1,4 +1,4 @@
-require('chai').should()
+var expect = require('chai').expect
 var nock = require('nock'),
   Client = require('../lib/client')
 config = require('../config')
@@ -139,7 +139,8 @@ describe('Appliances ', function () {
     it('should get the list', function (done) {
 
       client.applianceList('locationId').then(function (response) {
-        should.exist.response
+        expect(response).to.exist
+        expect(response).to.have.property('id')
         done()
       })
     })
@@ -147,7 +148,7 @@ describe('Appliances ', function () {
     it('should get a specific appliance by id', function (done) {
 
       client.appliance('applianceId').then(function (response) {
-        should.exist.response
+        expect(response).to.have.property('id')
         done()
       })
     })
@@ -155,9 +156,9 @@ describe('Appliances ', function () {
     it('should get appliance events from history', function (done) {
 
         client.applianceEvents('locationId','start','end','minPower','perPage','page').then(function (response) {
-        should.exist.response
-        response.length.should.equal(1)
-        response[0].appliance.name.should.equal("television")
+        expect(response).to.exist
+        expect(response).to.have.lengthOf(1)
+        expect(response[0].appliance.name).to.equal("television")
         done()
       })
     })
@@ -165,9 +166,9 @@ describe('Appliances ', function () {
     it('should get recent appliance events', function (done) {
 
       client.applianceEventsRecent('locationId','since','minPower','perPage','page').then(function (response) {
-        should.exist.response
-        response.length.should.equal(1)
-        response[0].appliance.name.should.equal("television")
+        expect(response).to.exist
+        expect(response).to.have.lengthOf(1)
+        expect(response[0].appliance.name).to.equal("television")
         done()
       })
     })
@@ -175,9 +176,9 @@ describe('Appliances ', function () {
     it('should get specific appliance stats', function (done) {
 
       client.applianceStats('applianceId', 'start', 'end').then(function (response) {
-        should.exist.response
-        response.length.should.equal(1)
-        response[0].appliance.name.should.equal("dryer")
+        expect(response).to.exist
+        expect(response).to.have.lengthOf(1)
+        expect(response[0].appliance.name).to.equal("dryer")
         done()
       })
     })

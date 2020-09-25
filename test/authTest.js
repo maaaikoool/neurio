@@ -1,4 +1,4 @@
-require('chai').should()
+var expect = require('chai').expect
 var nock = require('nock'),
   config = require('../config'),
   auth = require('../lib/auth'),
@@ -19,8 +19,8 @@ describe('Neurio auth simple flow ', function () {
   it('should retrieve the access token given the auth id and secret', function (done) {
 
     auth.simple('id', 'secret').then(function (client) {
-      should.exist.client
-      client.should.be.an.instanceof(Client);
+      expect(client).to.exist
+      expect(client).to.be.an.instanceof(Client);
       endpoint.done()
       done()
     })
