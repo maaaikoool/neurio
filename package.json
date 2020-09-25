@@ -22,12 +22,13 @@
   },
   "license": "MIT",
   "dependencies": {
-    "lodash": "^3.6.0",
-    "request-promise": "^0.4.1"
+    "lodash": "^4.17.20",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
   },
   "devDependencies": {
-    "nock": "^1.5.0",
-    "chai": "^2.2.0",
-    "mocha": "^2.2.4"
+    "nock": "^13.0.4",
+    "chai": "^4.2.0",
+    "mocha": "^8.1.3"
   }
 }
