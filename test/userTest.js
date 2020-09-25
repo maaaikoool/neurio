@@ -1,4 +1,4 @@
-require('chai').should()
+var expect = require('chai').expect
 var nock = require('nock'),
   Client = require('../lib/client')
 config = require('../config')
@@ -49,7 +49,7 @@ describe('Users endpoint ', function () {
     it('should get the user', function (done) {
 
       client.user().then(function (userInfo) {
-        should.exist.userInfo
+        expect(userInfo).to.exist
         done()
       })
     })
@@ -57,8 +57,8 @@ describe('Users endpoint ', function () {
     it('should return the default sensorId', function (done) {
 
       client.defaultSensorId().then(function (sensorId) {
-        should.exist.sensorId
-        sensorId.should.equal('0qX7nB-8Ry2bxIMTK0EmXw')
+        expect(sensorId).to.exist
+        expect(sensorId).to.equal('0qX7nB-8Ry2bxIMTK0EmXw')
         done()
       })
     })
